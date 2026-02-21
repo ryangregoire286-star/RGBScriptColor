@@ -39,40 +39,40 @@ function createdFunction($test) {
             get_Input($enteredCommand);
             
 
-        }
+            switch ($usersChoice) {
 
-    }
+                "/RGB" {
 
-    switch ($usersChoice) {
+                    $usersChoice = $UserValue;
 
-        "/RGB" {
-
-            $usersChoice = $UserValue;
-
-            $R = Create_Range;
-            $B = Create_Range;
-            $G = Create_Range;
+                    $R = Create_Range;
+                    $B = Create_Range;
+                    $G = Create_Range;
         
         
-            Write-Output "R: $R";             
-            Write-Output "G: $G";             
-            Write-Output "B: $B";             
+                    Write-Output "R: $R";             
+                    Write-Output "G: $G";             
+                    Write-Output "B: $B";             
+                }
+
+                "DATE" {
+                    $Date = Get-Date;
+                    Write-Host $Date;
+                }
+
+                "HELP" {
+                    $options = 'RGB', '/Home', 'Date'
+                    Write-Output $options;
+                }
+
+            }
+
+
         }
 
-        "DATE" {
-            $Date = Get-Date;
-            Write-Host $Date;
-        }
 
-        "HELP" {
-            $options = 'RGB', '/Home', 'Date'
-            Write-Output $options;
-        }
 
     }
-
 }
-
-
 
 createdFunction -test "true"
